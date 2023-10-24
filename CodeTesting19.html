@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CodeTesting19.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Login Form</title>
+</head>
+<body>
+    <div class="container">
+        <header>Login</header>
+        <form novalidate>
+            <div class="input-group">
+                <input type="text" placeholder="Username" required pattern="[a-zA-Z0-9!.@]{5,}" id="username">
+                <i class='bx bxs-user' id="user-icon"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required pattern="[a-zA-Z0-9!?*=.]{5,}">
+                <i class='bx bxs-hide' id="pass-icon"></i>
+            </div>
+            
+            <div class="bottom-group">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#" class="forgot">Forgot password?</a>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+        
+        <div class="signup-group">
+            <p>Don't have an account?</p>
+            <a href="#">Register</a>
+        </div>
+    </div>
+    </body>
+
+<script>
+// Password Section 
+    let passIcon = document.getElementById('pass-icon');
+
+    passIcon.addEventListener('click', () => {
+        let password = document.getElementById('password');
+        if(password.type === 'password') {
+            password.type = 'text';
+            passIcon.classList.replace('bxs-hide', 'bx-show');
+        } else if (password.type === 'text') {
+            password.type = 'password';
+            passIcon.classList.replace('bx-show', 'bxs-hide');  
+        }
+    });
+
+// User Section 
+    let userIcon = document.getElementById('user-icon');
+
+    userIcon.addEventListener('click', () => {
+        if(userIcon.classList.contains('bxs-user')) {
+            userIcon.classList.replace('bxs-user', 'bxs-user-voice');
+            createPopup();
+        } else if(userIcon.classList.contains('bxs-user-voice')) {
+            userIcon.classList.replace('bxs-user-voice', 'bxs-user');
+        }
+    });
+
+// Easter Egg
+    function createPopup() {
+        let div = document.createElement('div');
+        div.classList.add('display-div');
+        document.body.appendChild(div);
+        
+        setTimeout(() => {
+            userIcon.classList.replace('bxs-user-voice', 'bxs-user'); 
+            document.body.removeChild(div); 
+        }, 5000);
+        
+        div.innerText = 'You found an easter egg';
+        
+        let rect = userIcon.getBoundingClientRect();
+        div.style.position = 'absolute';
+        div.style.left = rect.right + '20px';  
+        div.style.top = rect.top + '0px';
+    }
+
+// Login 
+        let loginBtn = document.querySelector('button')
+
+        loginBtn.addEventListener('click', () => {
+            let password = document.getElementById('password');
+            let username = document.getElementById('username');
+            if(password.checkValidity() && username.checkValidity()) {
+                password.value = '';
+                username.value = '';
+            } else {
+                alert('Can\'t let you login with that input')
+            }
+        })
+
+</script>
+</html>
