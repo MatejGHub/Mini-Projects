@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Border Glow</title>
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;  
+  height: 100vh;
+  background-color: rgb(43, 43, 72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.glowing-border-div {
+  width: 15%;
+  height: fit-content;
+  position: relative;
+  background-color: rgba(96, 96, 136, 0.15);
+  color: #FFFFFF;
+  box-sizing: border-box;
+  margin: 2%;
+  text-align: center;
+  padding: 1% 2%;
+  font-size: 0.9rem;
+}
+.glowing-border-div.border1::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(to left, transparent, rgb(19, 226, 19), transparent);
+}
+.glowing-border-div.border2::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(to left, transparent, rgb(255, 178, 35), transparent);
+}
+.glowing-border-div.border3::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(to left, transparent, rgb(252, 0, 0), transparent);
+}
+  </style>
+</head>
+<body>
+  <div class="glowing-border-div border1">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, alias!</p>
+  </div>
+  <div class="glowing-border-div border2">
+    <p>This is a test paragraph. Let's see when the paragraph has a line break. Looks fine. But let's add some more text to see if it overflows. If it does overflow you should definetly fix that.</p>
+  </div>
+  <div class="glowing-border-div border3">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quasi!</p>
+  </div>
+</body>
+</html>
