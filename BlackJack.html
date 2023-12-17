@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="JSLearningCourseBlackJack.css">
+  <script src="https://kit.fontawesome.com/1d45b30790.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header-title">
+      <h1>BlackJack</h1>
+    </div>
+    <div class="content">
+      <div class="content-game-start">
+        <p id="game-play-round">Want to play a round?</p>
+        <button id="start-game-btn" onclick="startGame()">Yes</button>
+      </div>
+      <p>Cards: 
+        <span id="cards"></span>
+      </p>
+      <p>Sum:
+        <span id="sum"></span>  
+      </p>
+      <p id="message"></p>
+      <button id="draw-new">Draw New</button>
+      <p id="player-el"></p>
+    </div>
+  </div>
+
+  <script>
+    // This are: Blackjack DOM variables (HTML)
+    let startGameBtn = document.querySelector('#start-game-btn')
+    let cardNumbers = document.querySelector('#cards')
+    let cardSum = document.querySelector('#sum')
+    let message = document.querySelector('#message')
+    let drawNewCard = document.querySelector('#draw-new')
+    let playerInformation = document.querySelector('#player-el')
+    
+
+    // This are: Blackjack Varibles (JS only)
+    let cards = [];
+    let isAlive;
+    let hasBlackJack;
+    let player = {
+      name: "Matej",
+      chips: "143"
+    }
+
+    playerInformation.textContent = player.name + ": $" + player.chips;
+
+    function startGame() {
+    cards = [];
+    
+    cards.push(getRandomCard());
+    cards.push(getRandomCard());
+    let sum = cards[0] + cards[1];
+
+      if(sum <= 20) {
+      message.innerHTML = "Do you want to draw a new card?";
+      cardNumbers.innerHTML = cards[0] + ' + ' + cards[1];
+      cardSum.innerHTML = cards[0] + cards[1];
+      drawNewCard.classList.add('active')
+      
+      } else if (sum == 21) {
+        message.innerHTML = "You got BlackJack!";
+        cardNumbers.innerHTML = cards[0] + ' + ' + cards[1];
+        cardSum.innerHTML = cards[0] + cards[1];
+        hasBlackJack = true;
+        drawNewCard.classList.remove('active')
+      } else {
+        message.innerHTML = "You're out of the game!";
+        cardNumbers.innerHTML = cards[0] + ' + ' + cards[1];
+        cardSum.innerHTML = cards[0] + cards[1];
+        isAlive = false;
+        drawNewCard.classList.remove('active')
+      }
+
+    }
+
+    drawNewCard.addEventListener('click', () => {
+        newCard()
+      })  
+
+    function newCard() {
+      if(cards.length <= 5) {
+
+      cards.push(getRandomCard());
+
+      console.log("starting new game(card)" , cards)
+
+      let cardText = '';
+      let sum = 0;
+
+      for (let i = 0; i < cards.length; i++) {
+        cardText = cardText + cards[i];
+        if (i < cards.length - 1) {
+          cardText = cardText + ' + ';
+        }
+        sum = sum + cards[i];
+      }
+
+      cardNumbers.innerHTML = cardText;
+      cardSum.innerHTML = sum;
+
+      if (sum < 21) {
+        message.innerHTML = 'Do you want to draw a new card?';
+      } else if (sum === 21) {
+        message.innerHTML = 'You got BlackJack!';
+        drawNewCard.classList.remove('active')
+      } else {
+        message.innerHTML = "You're out of the game!";
+        drawNewCard.classList.remove('active')
+      }
+      }
+    }
+
+    function getRandomCard() {
+        let card = Math.floor(Math.random() * 13 + 1);
+      if (card > 10) {
+        card = 10;
+      } 
+
+      if (card === 1) {
+        card = 11;
+      }
+      
+      return card;
+    }
+    </script>
+</body>
+</html>
