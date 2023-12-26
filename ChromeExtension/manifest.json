@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Google extension",
+  "version": "1.0",
+  "description": "Saves the URL of a webpage",
+  "action": {
+    "default_popup": "chromeextension.html"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}

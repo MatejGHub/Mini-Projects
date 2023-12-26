@@ -1,0 +1,88 @@
+body{
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 500px;
+}
+
+.input-container{
+  background-color: white;
+  padding: 10px;
+  border: 1px solid black;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  height: fit-content;
+  transition: 0.3s;
+}
+
+.input-container #input-el{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: .5px solid black;
+  padding-left: 8px;
+  width: clamp(200px, 10vw, 500px);
+}
+
+.input-container #input-el:focus{
+  outline: none;
+  background-color: whitesmoke;
+}
+
+.input-container #ul-el{
+  margin: 0px 0 0px 15px;
+  padding: 0;
+}
+
+.input-container #ul-el:empty {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.input-container #ul-el li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.input-container #input-btn,
+.input-container #delete-btn,
+.input-container #save-btn{
+  border: .5px solid black;
+  padding-right: 10px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.input-container #input-btn:hover,
+.input-container #delete-btn:hover,
+.input-container #save-btn:hover{
+  opacity: 0.8;
+}
+
+.input-container #input-btn{
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.input-container #delete-btn,
+.input-container #save-btn{
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+
+.input-container ul a{
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
+}
+
