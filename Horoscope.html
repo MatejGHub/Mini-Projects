@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Horoscope</title>
+  </head>
+  <body>
+    <h1>Horoscope Sign Finder</h1>
+
+    <label for="birthdate">Enter horoscope date:</label>
+    <input type="date" id="birthdate" />
+    <button id="find-horoscope">Find Horoscope</button>
+
+    <p id="horoscopeResult"></p>
+
+    <script>
+      let birthdate = document.getElementById("birthdate");
+      let findHoroscope = document.getElementById("find-horoscope");
+
+      findHoroscope.addEventListener("click", () => {
+        let date = new Date(birthdate.value);
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let horoscopeResult = document.getElementById("horoscopeResult");
+
+        const zodiacSigns = [
+          { sign: "Capricorn", month: 1, day: 20 },
+          { sign: "Aquarius", month: 2, day: 19 },
+          { sign: "Pisces", month: 3, day: 21 },
+          { sign: "Aries", month: 4, day: 21 },
+          { sign: "Taurus", month: 5, day: 21 },
+          { sign: "Gemini", month: 6, day: 22 },
+          { sign: "Cancer", month: 7, day: 23 },
+          { sign: "Leo", month: 8, day: 23 },
+          { sign: "Virgo", month: 9, day: 23 },
+          { sign: "Libra", month: 10, day: 24 },
+          { sign: "Scorpio", month: 11, day: 23 },
+          { sign: "Sagittarius", month: 12, day: 22 }
+        ];
+
+        let horoscope = "";
+
+        if (month === 12 && day >= 22) {
+          horoscope = "Capricorn";
+        } else {
+          horoscope = zodiacSigns.find(
+            (z) => month < z.month || (month === z.month && day < z.day)
+          ).sign;
+        }
+
+        horoscopeResult.textContent = horoscope;
+      });
+    </script>
+  </body>
+</html>
