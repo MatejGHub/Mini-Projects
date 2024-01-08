@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Rock-Paper-Scissors.css" />
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Rock Paper Scissors</h1>
+      <div class="auto-play-btn">
+        <button id="auto-play">Auto Play</button>
+      </div>
+      <div class="rps-buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+      </div>
+      <span id="result-display"
+        >Result:
+        <p id="result"></p
+      ></span>
+      <section class="result-section">
+        <div class="choices">
+          <div class="player"><span>You</span><span>Computer</span></div>
+          <div class="choice-display">
+            <p id="choice-player">x</p>
+            <p id="choice-computer">x</p>
+          </div>
+        </div>
+      </section>
+      <p>Wins: <span id="win">0</span></p>
+      <p>Losses: <span id="lose">0</span></p>
+      <p>Ties: <span id="tie">0</span></p>
+      <button id="reset">Reset Score</button>
+      <div class="reset-section">
+        <p id="reset-score">You sure you want to reset?</p>
+        <button id="reset-yes">Yes</button>
+        <button id="reset-no">No</button>
+      </div>
+    </main>
+    <script src="Rock-paper-scissors.js"></script>
+  </body>
+</html>
