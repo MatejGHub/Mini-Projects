@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Stopwatch.css" />
+    <title>Stopwatch</title>
+  </head>
+  <body>
+    <!--  -->
+    <div class="container-buttons">
+      <button id="stopwatch">Stopwatch</button>
+      <button id="countdown">Countdown</button>
+    </div>
+    <div class="container-stopwatch">
+      <div class="display">
+        <div class="time">
+          <span id="hours">00</span>
+          <span>:</span>
+          <span id="minutes">00</span>
+          <span>:</span>
+          <span id="seconds">00</span>
+          <span>:</span>
+          <span id="milliseconds">00</span>
+        </div>
+        <div class="buttons">
+          <button class="start">Start</button>
+          <button class="stop">Stop</button>
+          <button class="reset">Reset</button>
+          <button class="lap">Lap</button>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="container-countdown">
+      <div class="display">
+        <div class="select-time">
+          <button class="hours">
+            <input type="text" placeholder="00" />
+            <span>Hours</span>
+          </button>
+          <button class="minutes">
+            <input type="text" placeholder="00" />
+            <span>Minutes</span>
+          </button>
+          <button class="seconds">
+            <input type="text" placeholder="00" />
+            <span>Seconds</span>
+          </button>
+          <button class="accept-time">Start Timer</button>
+        </div>
+        <div class="show-time">
+          <span id="hours-countdown">00</span>
+          <span>:</span>
+          <span id="minutes-countdown">00</span>
+          <span>:</span>
+          <span id="seconds-countdown">00</span>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="laps">
+      <ul class="lap-list"></ul>
+    </div>
+    <div class="shortcuts">
+      <p>Keyboard Shortcuts</p>
+      <ul>
+        <li><span>Start: </span>Space</li>
+        <li><span>Stop: </span>Esc</li>
+        <li><span>Reset:</span>R</li>
+        <li><span>Lap: </span>Enter</li>
+      </ul>
+    </div>
+    <script src="Stopwatch.js"></script>
+  </body>
+</html>

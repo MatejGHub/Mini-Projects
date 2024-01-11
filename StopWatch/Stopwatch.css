@@ -1,0 +1,305 @@
+/* BODY */
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(rainbow-vortex.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-direction: column;
+}
+
+/* StopWatch - Container */
+.container-stopwatch {
+  width: 55%;
+  height: fit-content;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  user-select: none;
+  padding: 5% 0 5% 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+.container-stopwatch.disable {
+  opacity: 0;
+  height: 0;
+  z-index: -1;
+}
+
+.container-buttons {
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+}
+
+.display {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+  gap: 80px;
+}
+
+.buttons {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons button {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 1rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.buttons button:active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.buttons .lap.disabled {
+  cursor: not-allowed;
+}
+
+/* COUNTDOWN Container - Elements */
+.container-countdown {
+  width: 55%;
+  height: fit-content;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  user-select: none;
+  padding: 3% 0 3% 0;
+  opacity: 0;
+  height: 0;
+  position: absolute;
+  margin: 0;
+  z-index: -1;
+}
+
+.container-countdown.active {
+  opacity: 1;
+  height: fit-content;
+  z-index: 1;
+}
+
+.select-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-time button {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 1rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.select-time button:hover:last-child {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.select-time button input {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.8rem;
+  padding-left: 18px;
+  width: 32%;
+}
+
+.select-time button input:focus {
+  outline: none;
+}
+
+/* Shared container styles */
+.container-buttons #stopwatch,
+.container-buttons #countdown {
+  width: 150px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  font-size: 1.5rem;
+  color: rgb(190, 187, 187);
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 0 10px 0 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.container-buttons #stopwatch.active,
+.container-buttons #countdown.active {
+  color: white;
+  box-shadow: 10px 0px 10px 0px rgba(27, 27, 27, 0.75);
+}
+
+.time,
+.show-time {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  color: white;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
+  transition: 0.2s;
+}
+
+/* Keyboard Shortcuts */
+.shortcuts {
+  position: absolute;
+  left: 5%;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  user-select: none;
+  padding: 1%;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.shortcuts p {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.shortcuts ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.shortcuts ul li {
+  padding: 0 0 0 5px;
+}
+
+.shortcuts ul li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.shortcuts ul li span {
+  font-weight: bold;
+}
+
+/* Display LAPS */
+.laps {
+  position: absolute;
+  right: 4%;
+  height: 0;
+  opacity: 0;
+  max-height: 50vh;
+  width: 17%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  user-select: none;
+  transition: 0.2s;
+  color: white;
+  text-align: center;
+}
+
+.laps.active {
+  opacity: 1;
+  height: fit-content;
+}
+
+.laps .lap-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  overflow-y: scroll;
+  max-height: 39vh;
+}
+
+.laps .lap-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.laps .lap-list::-webkit-scrollbar-track {
+  background: orange;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.laps .lap-list::-webkit-scrollbar-thumb {
+  background: gold;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.laps .lap-list li {
+  font-size: 1.5rem;
+  list-style-type: none;
+}
+
+/* Javascript LIST item */
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+}
