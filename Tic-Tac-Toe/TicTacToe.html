@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="TicTacToe.css" />
+    <link rel="icon" href="Images/tic-tac-toe.png" />
+    <title>Tic-Tac-Toe</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tic-Tac-Toe</h1>
+
+      <div class="grid">
+        <div class="cell cell1"></div>
+        <div class="cell cell2"></div>
+        <div class="cell cell3"></div>
+        <div class="cell cell4"></div>
+        <div class="cell cell5"></div>
+        <div class="cell cell6"></div>
+        <div class="cell cell7"></div>
+        <div class="cell cell8"></div>
+        <div class="cell cell9"></div>
+      </div>
+
+      <div>
+        <p class="status-text">X's Turn</p>
+      </div>
+
+      <div class="score">
+        <p id="player-1">Player X : <span id="player-1-score">0</span></p>
+        <p id="player-2">Player O : <span id="player-2-score">0</span></p>
+      </div>
+
+      <div class="result">
+        <p></p>
+      </div>
+
+      <div class="restart">
+        <button>Restart</button>
+      </div>
+
+      <div class="reset-score">
+        <button>Reset</button>
+      </div>
+    </div>
+
+    <script type="module" src="TicTacToeMain.js"></script>
+    <script type="module" src="TicTacToeReset.js"></script>
+  </body>
+</html>
